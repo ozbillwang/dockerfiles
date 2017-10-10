@@ -20,7 +20,7 @@ RUN set -ex; \
   rm -rf /var/lib/apt/lists/*; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt
 
-ADD filebeat.yml /etc/filebeat/filebeat.yml
+ADD filebeat.yml /etc/filebeat/filebeat.example.yml
 
 ENTRYPOINT ["filebeat", "-e"]
-CMD ["-c", "/etc/filebeat/filebeat.yml"]
+CMD ["-c", "/etc/filebeat/filebeat.example.yml"]
