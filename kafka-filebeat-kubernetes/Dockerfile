@@ -19,3 +19,8 @@ RUN set -ex; \
   apt-get purge -y --auto-remove $buildDeps; \
   rm -rf /var/lib/apt/lists/*; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt
+
+ADD filebeat.yml /etc/filebeat/filebeat.yml
+
+ENTRYPOINT ["filebeat", "-e"]
+CMD ["-c", "/etc/filebeat/filebeat.yml"]
